@@ -24,12 +24,12 @@ document.addEventListener('DOMContentLoaded', function () {
         // Create a "Remove" button for this task
         const removeButton = document.createElement('button');
         removeButton.textContent = "Remove";
-        removeButton.className = 'remove-btn';
+        removeButton.classList.add('remove-btn'); // ✅ Correct usage
 
         // Add functionality to remove the task when button is clicked
-        removeButton.onclick = function () {
+        removeButton.addEventListener('click', function () {
             taskList.removeChild(li);
-        };
+        });
 
         // Append the remove button to the list item
         li.appendChild(removeButton);
@@ -46,8 +46,4 @@ document.addEventListener('DOMContentLoaded', function () {
 
     // Allow pressing Enter to add a task
     taskInput.addEventListener('keypress', function (event) {
-        if (event.key === 'Enter') {
-            addTask();
-        }
-    });
-});
+        if (event.k
